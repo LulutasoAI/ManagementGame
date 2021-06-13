@@ -15,7 +15,10 @@ factorypl = 0
 androidpl = 0
 month = 1
 def checkmoney(money):
-    print("You have {} Yen now.".format(money))
+    M = money/1000000
+    left = M%1000000
+    print("You have {} M and {} Yen now.".format(M,left))
+    #print("You have {} Yen now.".format(money))
 def loading(message):
     punkt = "."
     for a in range(3):

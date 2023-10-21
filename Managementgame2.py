@@ -82,7 +82,7 @@ class Managementgame():
                 sys.exit()
             if self.money >= 100000:
                 try:
-                    op = input("what would you do... 1 = expand plants -100000 Yen , 2, huge investment - 10000000 Yen, 3 = buy stocks -{} Yen, 4= buy a house to hold plants -1000000, 5 = employ an android -3000000".format(stockprice))
+                    op = input("what would you do... 1 = expand plants -100000 Yen , 2, huge investment - 10000000 Yen, 3 = buy stocks -{} Yen, 4= buy a house to hold plants -1000000, 5 = employ an android -3000000".format(self.stockprice))
                     op = int(op)
                 except:
                     op = 0
@@ -110,7 +110,7 @@ class Managementgame():
                     self.stockvalue = int(self.stockvalue + self.stockprice)
                     self.investment = self.investment + self.stockprice
                 elif op == 4:
-                    loading("buying a house")
+                    self.loading("buying a house")
                     self.assets.append("house")
                     self.money = self.money - 1000000
                     self.plantcounter += 5
@@ -147,10 +147,10 @@ class Managementgame():
                     rate = luck/100
                     if luck >= 0:
                         income = ((self.stockvalue/self.stockcounter)*(np.abs(rate)))
-                        stockfluc = self.stockvalue*np.abs(rate)
+                        self.stockfluc = self.stockvalue*np.abs(rate)
                     else:
                         income = -((self.stockvalue/self.stockcounter)*(np.abs(rate)))
-                        stockfluc = -(self.stockvalue*np.abs(rate))
+                        self.stockfluc = -(self.stockvalue*np.abs(rate))
                     income = int(income)
                     if recession == 1:
                         self.loading("Oh no! recession occurred your assets are in danger!!!")

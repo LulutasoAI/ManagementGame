@@ -80,7 +80,7 @@ class Managementgame():
                 print("Game clear")
                 x = input("do you have something to say as a capitalist?")
                 sys.exit()
-            if self.money >= 100000:
+            if self.money >= 1000000:
                 try:
                     op = input("what would you do... 1 = expand plants -100000 Yen , 2, huge investment - 10000000 Yen, 3 = buy stocks -{} Yen, 4= buy a house to hold plants -1000000, 5 = employ an android -3000000".format(self.stockprice))
                     op = int(op)
@@ -118,7 +118,7 @@ class Managementgame():
                 elif op == 5:
                     self.loading("employing an android")
                     name = self.namegen()
-                    self.loading("Her Name is {}".format(name))
+                    self.loading("The android's Name is {}".format(name))
                     self.money = self.money -3000000
                     self.androidpl -= 3000000
                     self.monthchecking["{}".format(name)] = random.randint(-400000,500000)
@@ -156,9 +156,9 @@ class Managementgame():
                         self.loading("Oh no! recession occurred your assets are in danger!!!")
                         income = -(self.stockvalue/self.stockcounter)
                     self.stockvalue = int(self.stockvalue + self.stockfluc)
-                    firstthirds = int(self.money * 0.3)
-                    if firstthirds > 5000000:
-                        self.stockprice = firstthirds
+                    partial = int(self.money * 0.1)
+                    if partial > 5000000:
+                        self.stockprice = partial
                     else:
                         self.stockprice = 5000000
                     self.stockpl = self.stockpl + income
